@@ -9,35 +9,35 @@ SastaReact.appendChild(downloadPDF)
 const LinkList = [
     {
         "title": "Biotechnology Results",
-        "url": "BT"
+        "url": "B.Tech-BT"
     },
     {
         "title": "Computer Results",
-        "url": "CS"
+        "url": "B.Tech-CS"
     },
     {
         "title": "Chemical Results",
-        "url": "CH"
+        "url": "B.Tech-CH"
     },
     {
         "title": "Civil Results",
-        "url": "CE"
+        "url": "B.Tech-CE"
     },
     {
         "title": "Electronics Results",
-        "url": "EC"
+        "url": "B.Tech-EC"
     },
     {
         "title": "Electrical Results",
-        "url": "EE"
+        "url": "B.Tech-EE"
     },
     {
         "title": "Mechanical Results",
-        "url": "ME"
+        "url": "B.Tech-ME"
     },
     {
         "title": "Metallurgy Results",
-        "url": "MM"
+        "url": "B.Tech-MM"
     },
 ]
 

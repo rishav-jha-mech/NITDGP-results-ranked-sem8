@@ -1,7 +1,16 @@
 import json
 import fileinput
 
-subjectCodes = ["BT", "CE", "CH", "CS", "EC", "EE", "ME", "MM"]
+subjectCodes = [
+    "B.Tech-BT",
+    "B.Tech-CE",
+    "B.Tech-CH",
+    "B.Tech-CS",
+    "B.Tech-EC",
+    "B.Tech-EE",
+    "B.Tech-ME",
+    "B.Tech-MM",
+]
 rankingCriteria = ["CGPA", "SGPA"]
 
 
@@ -9,16 +18,20 @@ def passedStudentsOnly():
     with open("_rawData.txt", "r", encoding="utf-8") as info:
         for line in info:
             x = line.split()
-            if x[-1] != "Passed":
-                f = open("failed.txt", "a")
-                listToStr = " ".join(map(str, x))
-                f.write(f"{listToStr}\n")
-                f.close()
-                continue
-            f = open("passedStudents.txt", "a")
+            passedStudentsFile = open("passedStudents.txt", "a")
+            failedStudentsFile = open("failedStudents.txt", "a")
             listToStr = " ".join(map(str, x))
-            f.write(f"{listToStr}\n")
-            f.close()
+            if (
+                listToStr.find("BACKLOG") != -1
+                or listToStr.find("Backlog") != -1
+                or listToStr.find("Supp") != -1
+            ):
+                failedStudentsFile.write(f"{listToStr}\n")
+                failedStudentsFile.close()
+                continue
+            passedStudentsFile.write(f"{listToStr}\n")
+            passedStudentsFile.close()
+
 
 
 def generateAllResults(subjectInt, criteriaInt):
@@ -27,6 +40,7 @@ def generateAllResults(subjectInt, criteriaInt):
         return
     if criteriaInt < 0 or criteriaInt > 1:
         print("Enter valid criteria code")
+        return
     else:
         resultsDict = {}
         sortedList = []
@@ -38,9 +52,17 @@ def generateAllResults(subjectInt, criteriaInt):
             count = 0
             for line in info:
                 x = line.split()
-                if subjectCodes[subjectInt] == x[0]:
+                if subjectCodes[subjectInt] == x[1]:
                     count += 1
-                    resultsDict[count] = x[0:]
+                    # Find the index of "Passed" or "Withheld"
+                    if "Passed" in x:
+                        status_index = x.index("Passed")
+                    elif "Withheld" in x:
+                        status_index = x.index("Withheld")
+                    else:
+                        continue
+                    x[status_index:] = [" ".join(x[status_index:])]
+                    resultsDict[count] = x[1:]
 
         # Sorting according to CGPA or maybe SCGPA
         sortedList = sorted(
@@ -50,7 +72,7 @@ def generateAllResults(subjectInt, criteriaInt):
 
         for index, key in enumerate(sortedList):
             with open(
-                f"Ranked-{subjectCodes[subjectInt]}-{rankingCriteria[criteriaInt]}-Sem7.txt",
+                f"Ranked-{subjectCodes[subjectInt]}-{rankingCriteria[criteriaInt]}-Sem8.txt",
                 "a",
                 encoding="utf-8",
             ) as f:
@@ -58,7 +80,7 @@ def generateAllResults(subjectInt, criteriaInt):
                 f.write(f"{listToStr}\n")
 
             with open(
-                f"Ranked-{subjectCodes[subjectInt]}-{rankingCriteria[criteriaInt]}-Sem7.json",
+                f"Ranked-{subjectCodes[subjectInt]}-{rankingCriteria[criteriaInt]}-Sem8.json",
                 "a",
                 encoding="utf-8",
             ) as js:
@@ -70,7 +92,6 @@ def generateAllResults(subjectInt, criteriaInt):
                     js.write(",\n")
                 else:
                     js.write("\n]")
-
 
 def gen():
     for subject_code in range(len(subjectCodes)):
@@ -85,6 +106,6 @@ def gen():
 
 
 if __name__ == "__main__":
-    passedStudentsOnly()
-    # gen()
+    # passedStudentsOnly()
+    gen()
     print("All files generated successfully")
