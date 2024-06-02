@@ -103,7 +103,7 @@ function getName(data) {
     if (isNaN(item)) {
       name += item + " ";
     } else {
-        break;
+      break;
     }
   }
   return name.toLowerCase();
@@ -139,8 +139,10 @@ function setData(data) {
     let i = item.length;
     arena.innerHTML += `
             <div class="card w-100 mb-3">
-                <div class="card-header position-relative">
-                    <h6 class="text-capitalize mb-0">${item[0]}. ${getName(
+                <div class="card-header position-relative ${
+                  `${item[i - 1]}`.includes("Distinction") && "distinction"
+                }">
+                    <h6 class="text-capitalize mb-0">#${item[0]} ${getName(
       item
     )}</h6>
                 </div>
@@ -161,6 +163,11 @@ function setData(data) {
                         <div class="col-6 fw-light">
                             Roll no. - <span class="text-bold text-warning">${
                               item[2]
+                            }</span>
+                        </div>
+                        <div class="col-6 fw-light">
+                            Result. - <span class="text-bold text-warning">${
+                              item[i-1].replace("Passed", "")
                             }</span>
                         </div>
                     </div>

@@ -193,72 +193,76 @@ input::placeholder {
 }
 
 .BT {
-  background-color: #ff6666; /* Light red */
+  background-color: #ff6666;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: #8a0303 !important; /* Dark red */
+  color: #8a0303 !important;
   font-weight: bold;
 }
 
 .CS {
-  background-color: #66ff66; /* Light green */
+  background-color: #66ff66;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: #087f23 !important; /* Dark green */
+  color: #087f23 !important;
   font-weight: bold;
 }
 
 .CH {
-  background-color: #ffcc99; /* Light orange */
+  background-color: #ffcc99;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: #b54e00 !important; /* Dark orange */
+  color: #b54e00 !important;
   font-weight: bold;
 }
 
 .CE {
-  background-color: #99ccff; /* Light blue */
+  background-color: #99ccff;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: #004d99 !important; /* Dark blue */
+  color: #004d99 !important;
   font-weight: bold;
 }
 
 .EC {
-  background-color: #ff99ff; /* Light pink */
+  background-color: #ff99ff;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: #730099 !important; /* Dark pink */
+  color: #730099 !important;
   font-weight: bold;
 }
 
 .EE {
-  background-color: #99ffcc; /* Light cyan */
+  background-color: #99ffcc;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: #008c3e !important; /* Dark cyan */
+  color: #008c3e !important;
   font-weight: bold;
 }
 
 .ME {
-  background-color: #cc99ff; /* Light purple */
+  background-color: #cc99ff;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: #5628b4 !important; /* Dark purple */
+  color: #5628b4 !important;
   font-weight: bold;
 }
 
 .MM {
-  background-color: #f0e6ff; /* Light lavender */
+  background-color: #f0e6ff;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
-  color: #7f78d2 !important; /* Dark lavender */
+  color: #7f78d2 !important;
   font-weight: bold;
 }
 
-
-#arena #distinction {
+#arena .distinction {
   border-color: var(--secondary-color);
-  color: var(--secondary-color);
-  background: var(--primary-color);
+  color: var(--primary-color);
+  background-color: goldenrod;
+  font-weight: bold !important;
+}
+
+#arena .distinction h6{
+  font-weight: bold !important;
 }
