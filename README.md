@@ -1,1 +1,1 @@
-# Results of NIT DGP SEM 8 Sorted and Ranked
+# Results of NIT DGP SEM 8, Sorted and Ranked Batch 2020-2024

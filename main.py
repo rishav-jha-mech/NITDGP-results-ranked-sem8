@@ -93,6 +93,33 @@ def generateAllResults(subjectInt, criteriaInt):
                 else:
                     js.write("\n]")
 
+def generateOverallResult():
+    overall_results_dict = {}
+    with open("passedStudents.txt", "r", encoding="utf-8") as info:
+        for line in info:
+            x = line.split()
+            if "Passed" in x:
+                status_index = x.index("Passed")
+                x[status_index:] = [" ".join(x[status_index:])]
+                overall_results_dict[x[0]] = x[1:]
+
+    sorted_list = sorted(overall_results_dict, key=lambda x: overall_results_dict[x][-2], reverse=True)
+
+    with open("OverallResult-CGPA.txt", "a", encoding="utf-8") as f:
+        for key in sorted_list:
+            list_to_str = " ".join(map(str, overall_results_dict[key]))
+            f.write(f"{list_to_str}\n")
+
+    with open("OverallResult-CGPA.json", "a", encoding="utf-8") as js:
+        js.write("[\n")
+        for index, key in enumerate(sorted_list):
+            json_data = json.dumps(overall_results_dict[key], indent=4)
+            js.write(f"{json_data}")
+            if index != len(sorted_list) - 1:
+                js.write(",\n")
+            else:
+                js.write("\n]")
+
 def gen():
     for subject_code in range(len(subjectCodes)):
         for criteria_code in range(len(rankingCriteria)):
@@ -107,5 +134,6 @@ def gen():
 
 if __name__ == "__main__":
     # passedStudentsOnly()
-    gen()
+    # gen()
+    generateOverallResult()
     print("All files generated successfully")
