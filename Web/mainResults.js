@@ -1,34 +1,34 @@
 const arraySubs = [
   {
-    title: "Biotechnology Results",
+    title: "🧬 Biotechnology",
     code: "BT",
   },
   {
-    title: "Computer Science Results",
+    title: "💻 Computer Science",
     code: "CS",
   },
   {
-    title: "Chemical Results",
+    title: "🧪 Chemical",
     code: "CH",
   },
   {
-    title: "Civil Results",
+    title: "🚧 Civil",
     code: "CE",
   },
   {
-    title: "Electronics Results",
+    title: "📡 Electronics",
     code: "EC",
   },
   {
-    title: "Electrical Results",
+    title: "⚡ Electrical",
     code: "EE",
   },
   {
-    title: "Royal Mech Results",
+    title: "🔧 Royal Mech",
     code: "ME",
   },
   {
-    title: "Metallurgy Results",
+    title: "🔩 Metallurgy",
     code: "MM",
   },
 ];
@@ -82,6 +82,17 @@ function getName(data) {
   return name.toLowerCase();
 }
 
+function getDept(data) {
+  let dept = "";
+  const code = data[2] + data[3];
+  arraySubs.map((item) => {
+    if (item.code === code) {
+      dept = item.title;
+    }
+  });
+  return { dept, code };
+}
+
 function setTheRank(data) {
   data.map((item, index) => {
     item[0] = index + 1;
@@ -98,6 +109,7 @@ function setData(data) {
   data.map((item, _) => {
     let i = item.length;
     setTimeout(() => {
+      const dept = getDept(item[2]);
       arena.innerHTML += `
                 <div class="card w-100 mb-3">
                     <div class="card-header position-relative">
@@ -120,9 +132,9 @@ function setData(data) {
                         </div>
                         <div class="row text-white">
                             <div class="col-12 fw-light">
-                                Department - <span class="text-bold text-warning">${
-                                  item[2]
-                                }</span>
+                                Department - <span class="text-bold text-warning ${
+                                  dept.code
+                                }">${dept.dept}</span>
                             </div>
                         </div>
                     </div>

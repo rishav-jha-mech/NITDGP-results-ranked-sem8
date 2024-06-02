@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
   --primary-color: #6e012a;
@@ -7,7 +7,7 @@
 
 html,
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: var(--primary-color);
   scroll-behavior: smooth;
 }
@@ -76,13 +76,12 @@ h1 {
   color: var(--primary-color);
 }
 
-@media(max-width: 425px) {
+@media (max-width: 425px) {
   .upBtn {
     bottom: 1.5rem;
     right: 1.25rem;
   }
 }
-
 
 footer {
   background: var(--primary-color);
@@ -156,7 +155,7 @@ input {
 .minh300 {
   min-height: 300px;
 }
-.center{
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -191,4 +190,75 @@ input::placeholder {
     padding: 0.5rem;
     line-height: 1.5;
   }
+}
+
+.BT {
+  background-color: #ff6666; /* Light red */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  color: #8a0303 !important; /* Dark red */
+  font-weight: bold;
+}
+
+.CS {
+  background-color: #66ff66; /* Light green */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  color: #087f23 !important; /* Dark green */
+  font-weight: bold;
+}
+
+.CH {
+  background-color: #ffcc99; /* Light orange */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  color: #b54e00 !important; /* Dark orange */
+  font-weight: bold;
+}
+
+.CE {
+  background-color: #99ccff; /* Light blue */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  color: #004d99 !important; /* Dark blue */
+  font-weight: bold;
+}
+
+.EC {
+  background-color: #ff99ff; /* Light pink */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  color: #730099 !important; /* Dark pink */
+  font-weight: bold;
+}
+
+.EE {
+  background-color: #99ffcc; /* Light cyan */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  color: #008c3e !important; /* Dark cyan */
+  font-weight: bold;
+}
+
+.ME {
+  background-color: #cc99ff; /* Light purple */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  color: #5628b4 !important; /* Dark purple */
+  font-weight: bold;
+}
+
+.MM {
+  background-color: #f0e6ff; /* Light lavender */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+  color: #7f78d2 !important; /* Dark lavender */
+  font-weight: bold;
+}
+
+
+#arena #distinction {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  background: var(--primary-color);
 }
