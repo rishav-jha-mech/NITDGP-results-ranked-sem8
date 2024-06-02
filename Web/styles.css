@@ -106,7 +106,7 @@ footer .fab {
   left: 0.75rem;
 }
 
-input {
+#search {
   background: transparent !important;
   border-color: var(--secondary-color) !important;
   color: var(--bs-white) !important;
@@ -161,7 +161,7 @@ input {
   align-items: center;
 }
 
-input::placeholder {
+#search::placeholder {
   color: var(--bs-white) !important;
   opacity: 0.7 !important;
 }
@@ -265,4 +265,13 @@ input::placeholder {
 
 #arena .distinction h6{
   font-weight: bold !important;
+}
+
+canvas {
+  background-color: #fff;
+  margin: 1rem auto auto 0;
+  border-radius: 1rem;
+  width: 100%;
+  max-height: 300px !important;
+  max-width: 600px !important;
 }

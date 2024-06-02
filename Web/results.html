@@ -25,11 +25,13 @@
 	<a href="./index.html" class="fa-solid fa-angle-left text-warning fs-1 ml-2 ps-2 pe-4 py-2"></a>
 	<h1 class="text-center" id="header"></h1>
 	<div class="container mb-5">
+		<div class="maxw600 mx-auto center flex-column">
+			<canvas id="resultChart"></canvas>
 		<div class="row">
 			<div class="col-12">
 				<div class="input-group mt-3 mb-3 maxw600 mx-auto">
-					<input type="text" id="search" class="form-control" autocomplete="off"
-						placeholder="Search by Name" id="search">
+					<input type="text" id="search" class="form-control" autocomplete="off" placeholder="Search by Name"
+						id="search">
 					<button class="btn btn-warning ms-1" type="button" id="button-addon2">
 						<i class="fa-solid fa-search"></i>
 					</button>
@@ -59,18 +61,22 @@
 	</div>
 	<footer>
 		<div class="center">
-		  <a href="https://github.com/rishav-jha-mech" target="_blank" rel="noopener noreferrer" class="fab mx-2 fa-github"></a>
-		  <a href="https://www.linkedin.com/in/rishav-jha-549b45203/" target="_blank" rel="noopener noreferrer" class="fab mx-2 fa-linkedin"></a>
-		  <a href="https://wa.me/send?text=Hi%20Rishav&phone=7439876937" target="_blank" rel="noopener noreferrer" class="fab mx-2 fa-whatsapp"></a>
-		  <a href="https://stackoverflow.com/users/16330307/rishav-jha" target="_blank" rel="noopener noreferrer" class="fab mx-2 fa-stack-overflow"></a>
+			<a href="https://github.com/rishav-jha-mech" target="_blank" rel="noopener noreferrer"
+				class="fab mx-2 fa-github"></a>
+			<a href="https://www.linkedin.com/in/rishav-jha-549b45203/" target="_blank" rel="noopener noreferrer"
+				class="fab mx-2 fa-linkedin"></a>
+			<a href="https://wa.me/send?text=Hi%20Rishav&phone=7439876937" target="_blank" rel="noopener noreferrer"
+				class="fab mx-2 fa-whatsapp"></a>
+			<a href="https://stackoverflow.com/users/16330307/rishav-jha" target="_blank" rel="noopener noreferrer"
+				class="fab mx-2 fa-stack-overflow"></a>
 		</div>
 		<p class="text-white">Made with ❤ by Rishav Jha </p>
 	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="./res.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous">
-	</script>
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+		</script>
 </body>
 
 </html>

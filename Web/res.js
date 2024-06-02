@@ -32,7 +32,10 @@ const arraySubs = [
     code: "B.Tech-MM",
   },
 ];
-// addHeader
+
+const pointersTitle = ["9+", "8.5+", "8+", "7.5+", "7+", "6.5+", "6+", "5.5+"];
+const pointersData = [0, 0, 0, 0, 0, 0, 0, 0];
+
 const print = (data) => console.log(JSON.stringify(data, null, 4));
 const heading = document.getElementById("header");
 const cgpaBtn = document.getElementById("cgpabtn");
@@ -90,6 +93,7 @@ fetch(`../${fileName}`)
     jsonData = setTheRank(data);
     arena.innerHTML = "";
     setData(data);
+    renderGraph(data);
   })
   .catch((err) => {
     console.log(err);
@@ -166,13 +170,115 @@ function setData(data) {
                             }</span>
                         </div>
                         <div class="col-6 fw-light">
-                            Result. - <span class="text-bold text-warning">${
-                              item[i-1].replace("Passed", "")
-                            }</span>
+                            Result. - <span class="text-bold text-warning">${item[
+                              i - 1
+                            ].replace("Passed", "")}</span>
                         </div>
                     </div>
                 </div>
             </div>
         `;
   });
+}
+function renderGraph(graphData) {
+  const ctx = document.getElementById("resultChart").getContext("2d");
+  ctx.canvas.width = 300;
+  ctx.canvas.height = 300;
+
+  // Initialize pointersData
+  const pointersData = Array(8).fill(0);
+
+  graphData.map((item) => {
+    let cgpa = item[item.length - 2];
+    if (cgpa >= 9) {
+      pointersData[0]++;
+    } else if (cgpa >= 8.5) {
+      pointersData[1]++;
+    } else if (cgpa >= 8) {
+      pointersData[2]++;
+    } else if (cgpa >= 7.5) {
+      pointersData[3]++;
+    } else if (cgpa >= 7) {
+      pointersData[4]++;
+    } else if (cgpa >= 6.5) {
+      pointersData[5]++;
+    } else if (cgpa >= 6) {
+      pointersData[6]++;
+    } else if (cgpa >= 5.5) {
+      pointersData[7]++;
+    }
+  });
+
+  const data = {
+    labels: pointersTitle,
+    datasets: [
+      {
+        label: "",
+        data: pointersData,
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.4)",
+          "rgba(54, 162, 235, 0.4)",
+          "rgba(255, 206, 86, 0.4)",
+          "rgba(75, 192, 192, 0.4)",
+          "rgba(153, 102, 255, 0.4)",
+          "rgba(255, 159, 64, 0.4)",
+          "rgba(255, 99, 132, 0.4)",
+          "rgba(54, 162, 235, 0.4)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const config = {
+    type: "bar",
+    data: data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      percentageValues: true,
+      layout: {
+        padding: 16,
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: "#202020",
+            font: {
+              weight: "600",
+            },
+            stepSize: 5,
+            min: 0,
+            max: 100,
+          },
+        },
+        x: {
+          ticks: {
+            color: "#202020",
+            font: {
+              weight: "600",
+            },
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  };
+
+  const myBarChart = new Chart(ctx, config);
 }
